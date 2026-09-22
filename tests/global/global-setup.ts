@@ -3,6 +3,8 @@ import path from 'path';
 
 import { chromium, type FullConfig } from '@playwright/test';
 
+import { LoginPage } from '../../pom/login.page';
+
 export const authFile = path.resolve(process.cwd(), 'playwright/.auth/standard_user.json');
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -15,9 +17,8 @@ export default async function globalSetup(_: FullConfig) {
   const page = await browser.newPage();
 
   await page.goto(baseURL!);
-  await page.locator('#user-name').fill(username!);
-  await page.locator('#password').fill(password!);
-  await page.locator('#login-button').click();
+  const loginPage = new LoginPage(page);
+  await loginPage.login(username!, password!);
   await page.waitForURL(/inventory/);
 
   fs.mkdirSync(path.dirname(authFile), { recursive: true });
