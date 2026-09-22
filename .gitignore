@@ -3,7 +3,12 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
-reports/*
+reports/
+test-data/*
+playwright/.auth/
 
 # Node
 node_modules/
+
+# Env
+.env
