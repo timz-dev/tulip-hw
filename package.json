@@ -8,8 +8,9 @@
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "show-report": "playwright show-report ./reports",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prettier": "npx prettier --write",
     "format": "prettier --write .",
     "prepare": "husky"
   },
