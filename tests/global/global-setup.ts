@@ -8,7 +8,7 @@ export const authFile = path.resolve(process.cwd(), 'playwright/.auth/standard_u
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default async function globalSetup(_: FullConfig) {
   const baseURL = process.env.BASE_URL;
-  const username = process.env.USERNAME;
+  const username = process.env.STANDARD_USER;
   const password = process.env.PASSWORD;
 
   const browser = await chromium.launch();
