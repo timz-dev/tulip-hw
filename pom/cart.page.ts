@@ -5,6 +5,7 @@ export class CartPage {
 
   private readonly selectors = {
     cartItem: '.cart_item',
+    cartItemName: '.inventory_item_name',
   };
 
   constructor(page: Page) {
@@ -15,12 +16,20 @@ export class CartPage {
     return this.page.locator(this.selectors.cartItem);
   }
 
+  get cartItemNames() {
+    return this.page.locator(this.selectors.cartItemName);
+  }
+
   get checkoutButton() {
     return this.page.getByRole('button', { name: 'Checkout' });
   }
   //#endregion
 
-  async checkout() {
+  async clickCheckout() {
     await this.checkoutButton.click();
+  }
+
+  async removeItemByName(name: string) {
+    await this.cartItems.filter({ hasText: name }).getByRole('button', { name: 'Remove' }).click();
   }
 }
