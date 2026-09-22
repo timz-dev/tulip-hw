@@ -1,0 +1,19 @@
+# IDE / Editor config
+.idea/
+.vscode/
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build / cache
+dist/
+build/
+reports/
+test-results/
+playwright-report/
+blob-report/
+
+# Dependencies
+node_modules/
