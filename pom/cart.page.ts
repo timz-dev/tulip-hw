@@ -1,16 +1,13 @@
 import type { Page } from '@playwright/test';
 
 export class CartPage {
-  readonly page: Page;
-
   private readonly selectors = {
     cartItem: '.cart_item',
     cartItemName: '.inventory_item_name',
   };
 
-  constructor(page: Page) {
-    this.page = page;
-  }
+  constructor(protected readonly page: Page) {}
+
   //#region Locators
   get cartItems() {
     return this.page.locator(this.selectors.cartItem);

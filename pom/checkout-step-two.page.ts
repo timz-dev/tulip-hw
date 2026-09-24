@@ -1,11 +1,7 @@
 import type { Locator, Page } from '@playwright/test';
 
 export class CheckoutStepTwoPage {
-  readonly page: Page;
-
-  constructor(page: Page) {
-    this.page = page;
-  }
+  constructor(protected readonly page: Page) {}
 
   //#region Locators
   get finishButton(): Locator {

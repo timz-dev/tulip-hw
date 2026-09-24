@@ -1,16 +1,14 @@
 import type { Page } from '@playwright/test';
 
 export class LoginPage {
-  readonly page: Page;
   private readonly selectors = {
     username: '#user-name',
     password: '#password',
     loginButton: '#login-button',
   };
 
-  constructor(page: Page) {
-    this.page = page;
-  }
+  constructor(protected readonly page: Page) {}
+
   //#region Locators
   get usernameInput() {
     return this.page.locator(this.selectors.username);

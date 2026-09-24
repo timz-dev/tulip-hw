@@ -1,7 +1,8 @@
 import type { Locator, Page } from '@playwright/test';
 
+import { SortOption } from '../types/page';
+
 export class InventoryPage {
-  readonly page: Page;
   private readonly selectors = {
     inventoryItem: '.inventory_item',
     itemName: '.inventory_item_name',
@@ -11,9 +12,8 @@ export class InventoryPage {
     sortDropdown: '[data-test="product-sort-container"]',
   };
 
-  constructor(page: Page) {
-    this.page = page;
-  }
+  constructor(protected readonly page: Page) {}
+
   //#region Locators
   get inventoryItems(): Locator {
     return this.page.locator(this.selectors.inventoryItem);
@@ -58,7 +58,7 @@ export class InventoryPage {
     await this.cartLink.click();
   }
 
-  async selectSortOption(value: string) {
+  async selectSortOption(value: SortOption) {
     await this.sortDropdown.selectOption(value);
   }
 }

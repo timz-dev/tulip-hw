@@ -1,16 +1,13 @@
 import type { Locator, Page } from '@playwright/test';
 
 export class CheckoutStepOnePage {
-  readonly page: Page;
   private readonly selectors = {
     firstName: '#first-name',
     lastName: '#last-name',
     postalCode: '#postal-code',
   };
 
-  constructor(page: Page) {
-    this.page = page;
-  }
+  constructor(protected readonly page: Page) {}
 
   //#region Locators
   get firstNameInput(): Locator {
